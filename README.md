@@ -1,6 +1,9 @@
 # CampoMimosa
-[EN/PT-BR]
+[EN]
+
 Mimosa Field: a cow-themed minesweeper. Made in 2019 for a 1-week gamejam, using C++ and SFML.
+
+[PT-BR]
 
 Campo Mimosa: um campo minado com temática de vacas. Feito em 2019 para uma gamejam de uma semana, usando C++ e SFML.
 

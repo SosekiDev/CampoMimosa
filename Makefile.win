@@ -1,0 +1,57 @@
+# Project: Campo_Mimosa
+# Makefile created by Dev-C++ 5.11
+
+CPP      = g++.exe -D__DEBUG__
+CC       = gcc.exe -D__DEBUG__
+WINDRES  = windres.exe
+RES      = Campo_Mimosa_private.res
+OBJ      = main.o classes/Playing.o classes/Field.o classes/Menu.o classes/MainMenu.o classes/Difficulty.o classes/CustomDifficulty.o classes/Leaderboard.o classes/Options.o $(RES)
+LINKOBJ  = main.o classes/Playing.o classes/Field.o classes/Menu.o classes/MainMenu.o classes/Difficulty.o classes/CustomDifficulty.o classes/Leaderboard.o classes/Options.o $(RES)
+LIBS     = -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib32" -static-libgcc -Wall -Wextra -pedantic -Wcast-align -Wcast-qual -Wctor-dtor-privacy -Wdisabled-optimization -Wformat=2 -Winit-self -Wlogical-op -Wmissing-include-dirs -Wnoexcept -Wold-style-cast -Woverloaded-virtual -Wredundant-decls -Wshadow -Wsign-promo -Wstrict-null-sentinel -Wstrict-overflow=5 -Wundef -Wno-unused -Wno-variadic-macros -Wno-parentheses -fdiagnostics-show-option -L"C:/SFML-2.4.2/lib" -mwindows -lsfml-audio -lsfml-graphics -lsfml-system -lsfml-window -static -m32 -g3
+INCS     = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"C:/SFML-2.4.2/include"
+CXXINCS  = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++" -I"C:/SFML-2.4.2/include"
+BIN      = Campo_Mimosa.exe
+CXXFLAGS = $(CXXINCS) -m32 -Wall -Wextra -g3 -std=c++14
+CFLAGS   = $(INCS) -m32 -Wall -Wextra -g3 -std=c++14
+RM       = rm.exe -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+main.o: main.cpp
+	$(CPP) -c main.cpp -o main.o $(CXXFLAGS)
+
+classes/Playing.o: classes/Playing.cpp
+	$(CPP) -c classes/Playing.cpp -o classes/Playing.o $(CXXFLAGS)
+
+classes/Field.o: classes/Field.cpp
+	$(CPP) -c classes/Field.cpp -o classes/Field.o $(CXXFLAGS)
+
+classes/Menu.o: classes/Menu.cpp
+	$(CPP) -c classes/Menu.cpp -o classes/Menu.o $(CXXFLAGS)
+
+classes/MainMenu.o: classes/MainMenu.cpp
+	$(CPP) -c classes/MainMenu.cpp -o classes/MainMenu.o $(CXXFLAGS)
+
+classes/Difficulty.o: classes/Difficulty.cpp
+	$(CPP) -c classes/Difficulty.cpp -o classes/Difficulty.o $(CXXFLAGS)
+
+classes/CustomDifficulty.o: classes/CustomDifficulty.cpp
+	$(CPP) -c classes/CustomDifficulty.cpp -o classes/CustomDifficulty.o $(CXXFLAGS)
+
+classes/Leaderboard.o: classes/Leaderboard.cpp
+	$(CPP) -c classes/Leaderboard.cpp -o classes/Leaderboard.o $(CXXFLAGS)
+
+classes/Options.o: classes/Options.cpp
+	$(CPP) -c classes/Options.cpp -o classes/Options.o $(CXXFLAGS)
+
+Campo_Mimosa_private.res: Campo_Mimosa_private.rc 
+	$(WINDRES) -i Campo_Mimosa_private.rc -F pe-i386 --input-format=rc -o Campo_Mimosa_private.res -O coff 
+
